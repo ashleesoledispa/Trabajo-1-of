@@ -20,3 +20,40 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+body {
+    background-color: #000000; 
+    color: white; 
+    font-family: 'Poppins', sans-serif; 
+}
++
+/* personalizar barra de tareas */
+.navbar {
+    background-color: #121212;
+    border-bottom: 1px solid #333;
+}
+
+.navbar .nav-link {
+    color: #004080 !important;
+}
+
+    .navbar .nav-link:hover {
+        color: #00ffcc !important; 
+    }
+
+
+/* ediciones que se podian hacer en el carrusel */
+.carousel-item img {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+}
+
+
+footer.footer {
+    background-color: #121212;
+    color: #cccccc;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+}
+
