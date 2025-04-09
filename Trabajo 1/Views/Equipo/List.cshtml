@@ -7,9 +7,9 @@
 <h1>List</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class= btn btn-info" asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table" id="id-posiciones">
     <thead>
         <tr>
             <th>
@@ -55,9 +55,9 @@
                 @Html.DisplayFor(modelItem => item.PartidosEmpatados)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-success"}) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ },  new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ },  new { @class = "btn btn-danger" })
             </td>
         </tr>
 }

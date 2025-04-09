@@ -5,6 +5,13 @@ namespace Trabajo_1.NewFolder1
 {
     public class EquipoRepository
     {
+        //IEnumerable representa una lista
+        public IEnumerable<Equipo> Equipos; //Trabajar en base a esta variable
+        public EquipoRepository()
+        {
+            Equipos = DevuelveListadoEquipos();
+
+        }
         public IEnumerable<Equipo> DevuelveListadoEquipos()
         {
             List<Equipo> equipos = new List<Equipo>();
@@ -57,6 +64,20 @@ namespace Trabajo_1.NewFolder1
             equipos.Add(delfin);
             return (equipos);
         }
+
+        public Equipo DevuelveEquipoPorId(int Id)
+            {
+                var equipos=DevuelveListadoEquipos();
+                var equipo = equipos.First(item => item.Id == Id);
+
+
+                return equipo;
+            }
+        public bool ActualizarEquipo(int Id, Equipo equipo)
+        {
+            //Logica de actualizacion
+            return true;
+
+        }
     }
 }
-   

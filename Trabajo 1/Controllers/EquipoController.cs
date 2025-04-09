@@ -8,6 +8,12 @@ namespace Trabajo_1.Controllers
 {
     public class EquipoController : Controller
     {
+        //Esto maneja todo el codigo para no tener que inicializar el repository a cada rato, solo se lo llama
+        public EquipoRepository _repository;
+        public EquipoController()
+        {
+            _repository = new EquipoRepository();
+        }
         public ActionResult View()
         {
             return View();
@@ -15,15 +21,39 @@ namespace Trabajo_1.Controllers
 
         public ActionResult List()
         {
-            EquipoRepository repository = new EquipoRepository();
-            var equipos = repository.DevuelveListadoEquipos();
+            var equipos = _repository.DevuelveListadoEquipos();
 
             equipos = equipos.OrderBy(item => item.PartidosGanados);
             return View(equipos);
         }
 
-        
+        public ActionResult Create()
+        {
+            return View();
+        }
 
+        public ActionResult Edit(int Id)
+        {
+            var equipo = _repository.DevuelveEquipoPorId(Id);
+            return View(equipo);
+
+        }
+
+        [HttpPost] //para guardar o actualizar 
+        public ActionResult Edit (int Id, Equipo equipo)
+        {
+            //Proceso de guardar
+            try
+            {
+                _repository.ActualizarEquipo(Id, equipo);
+                return RedirectToAction(nameof(List));
+            }
+            catch
+            {
+                return View();
+            }
+
+        }
     }
 }
 
