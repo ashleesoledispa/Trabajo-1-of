@@ -5,6 +5,7 @@ namespace Trabajo_1.NewFolder1
 {
     public class EquipoRepository
     {
+
         //IEnumerable representa una lista
         public IEnumerable<Equipo> Equipos; //Trabajar en base a esta variable
         public EquipoRepository()

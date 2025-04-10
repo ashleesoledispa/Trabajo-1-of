@@ -9,13 +9,11 @@ namespace Trabajo_1.Controllers
         // Repositorio
         private readonly EquipoRepository _repository;
 
-        // Constructor
         public EquipoController()
         {
             _repository = new EquipoRepository();
         }
 
-        // Acción para mostrar la lista de equipos
         public ActionResult List()
         {
             var equipos = _repository.DevuelveListadoEquipos();
@@ -23,47 +21,44 @@ namespace Trabajo_1.Controllers
             return View(equipos);
         }
 
-        // Acción para crear un nuevo equipo
         public ActionResult Create()
         {
             return View();
         }
 
-        // Acción para mostrar el formulario de edición (GET)
         public ActionResult Edit(int id)
         {
-            var equipo = _repository.DevuelveEquipoPorId(id); // Obtener el equipo por su ID
+            var equipo = _repository.DevuelveEquipoPorId(id);
             if (equipo == null)
             {
-                return NotFound(); // Si no se encuentra el equipo, devuelve un error 404
+                return NotFound();
             }
-            return View(equipo); // Pasa el modelo (equipo) a la vista
+            return View(equipo);
         }
 
-        // Acción para procesar la edición del equipo (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, Equipo equipo)
         {
-            if (id != equipo.Id) // Verifica si el ID no coincide
+            if (id != equipo.Id)
             {
-                return NotFound(); // Si el ID no coincide, devuelve un error 404
+                return NotFound();
             }
 
             if (ModelState.IsValid)
             {
-                var actualizado = _repository.ActualizarEquipo(id, equipo); // Llama al repositorio para actualizar
+                var actualizado = _repository.ActualizarEquipo(id, equipo);
                 if (actualizado)
                 {
-                    return RedirectToAction(nameof(List)); // Redirige a la lista después de la actualización
+                    return RedirectToAction(nameof(List));
                 }
                 else
                 {
-                    return NotFound(); // Si no se pudo actualizar, devuelve un error
+                    return NotFound();
                 }
             }
 
-            return View(equipo); // Si el modelo no es válido, vuelve a mostrar el formulario con los errores
+            return View(equipo);
         }
 
         // Acción para ver los detalles de un equipo
@@ -72,9 +67,11 @@ namespace Trabajo_1.Controllers
             var equipo = _repository.DevuelveEquipoPorId(id);
             if (equipo == null)
             {
-                return NotFound(); // Si no se encuentra el equipo, devuelve un error 404
+                return NotFound();
             }
-            return View(equipo); // Pasa el modelo (equipo) a la vista
+            return View(equipo);
         }
+
+
     }
 }
