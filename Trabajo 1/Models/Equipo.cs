@@ -21,6 +21,7 @@ namespace Trabajo_1.Models
         [Range(0, 100)]
         public int PartidosEmpatados { get; set; }
         public string Logo { get; set; }
+        public string Descripcion { get; set; }
 
 
 
