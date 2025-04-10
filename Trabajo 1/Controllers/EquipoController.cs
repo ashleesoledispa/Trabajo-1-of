@@ -1,6 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NuGet.Protocol.Core.Types;
 using Trabajo_1.Models;
 using Trabajo_1.NewFolder1;
 
@@ -54,6 +55,28 @@ namespace Trabajo_1.Controllers
             }
 
         }
+
+        public IActionResult View(int id)
+        {
+            var equipo = _repository.DevuelveEquipoPorId(id); 
+            if (equipo == null)
+            {
+                return NotFound();
+            }
+            return View(equipo);
+        }
+
+        public IActionResult Detalles(int id)
+        {
+            var equipo = _repository.DevuelveEquipoPorId(id);
+            if (equipo == null)
+            {
+                return NotFound();
+            }
+            return View(equipo); // Esto busca la vista "Detalles.cshtml"
+        }
+
+
     }
 }
 

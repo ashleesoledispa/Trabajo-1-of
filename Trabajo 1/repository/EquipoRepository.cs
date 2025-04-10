@@ -19,6 +19,7 @@ namespace Trabajo_1.NewFolder1
             {
                 Id = 1,
                 Nombre = "Liga de Quito",
+                Logo = "LDU.jpeg",
                 PartidosJugados = 10,
                 PartidosGanados = 5,
                 PartidosPerdidos = 3,
@@ -31,6 +32,7 @@ namespace Trabajo_1.NewFolder1
             {
                 Id = 2,
                 Nombre = "Barcelona",
+                Logo = "BARCELONA.png",
                 PartidosJugados = 12,
                 PartidosGanados = 4,
                 PartidosPerdidos = 2,
@@ -43,6 +45,7 @@ namespace Trabajo_1.NewFolder1
             {
                 Id = 3,
                 Nombre = "Emelec",
+                Logo = "EMELEC.png",
                 PartidosJugados = 11,
                 PartidosGanados = 6,
                 PartidosPerdidos = 1,
@@ -55,6 +58,7 @@ namespace Trabajo_1.NewFolder1
             {
                 Id = 4,
                 Nombre = "Delfín",
+                Logo = "DELFIN.png",
                 PartidosJugados = 10,
                 PartidosGanados = 7,
                 PartidosPerdidos = 0,

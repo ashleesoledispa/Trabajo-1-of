@@ -20,6 +20,8 @@ namespace Trabajo_1.Models
         public int PartidosPerdidos { get; set; }
         [Range(0, 100)]
         public int PartidosEmpatados { get; set; }
+        public string Logo { get; set; }
+
 
 
     }

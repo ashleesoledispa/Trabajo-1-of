@@ -6,6 +6,13 @@
 
 <h1>List</h1>
 
+<style>
+    body, table, th, td {
+        color: white;
+    }
+</style> 
+
+
 <p>
     <a class= btn btn-info" asp-action="Create">Create New</a>
 </p>
@@ -34,32 +41,36 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartidosJugados)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartidosGanados)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartidosPerdidos)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PartidosEmpatados)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Id }, new { @class = "btn btn-success"}) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ },  new { @class = "btn btn-info" }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ },  new { @class = "btn btn-danger" })
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    <img src="~/images/@item.Logo" alt="logo" width="30" height="3O" style="margin-right: 10px;" />
+                    @item.Nombre
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartidosJugados)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartidosGanados)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartidosPerdidos)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PartidosEmpatados)
+                </td>
+                <td>
+                <td>
+                        @Html.ActionLink("Ver informacion", "Detalles", new { id = item.Id }, new { @class = "btn btn-info" }) |
+                        @Html.ActionLink("Editar", "Edit", new { id = item.Id }, new { @class = "btn btn-success" }) |
+                </td>
+
+            </tr>
+        }
     </tbody>
+
 </table>
